@@ -23,7 +23,7 @@ subprojects {
         mavenCentral()
     }
 
-    dependencyManagement {S
+    dependencyManagement {
         imports {
             mavenBom "org.springframework.boot:spring-boot-dependencies:4.0.0"
         }
@@ -36,11 +36,10 @@ subprojects {
 
         // Mapstruct
         implementation("org.mapstruct:mapstruct:1.6.3")
-        implementation("org.projectlombok:mapstruct-processor:1.6.3")
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
 
         // Binding Lombok-Mapstruct
-        implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
-
+        implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
         // Testing
         testCompileOnly 'org.projectlombok:lombok'

@@ -8,7 +8,6 @@ import com.raulsanchez.erp_lite.domain.product.events.StockChanged;
 import com.raulsanchez.erp_lite.domain.shared.AuditInfo;
 import com.raulsanchez.erp_lite.domain.shared.Money;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.Instant;

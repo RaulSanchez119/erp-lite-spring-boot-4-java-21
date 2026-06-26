@@ -1,7 +1,7 @@
 package com.raulsanchez.erp_lite.persistence.rest.adapters;
 
 import com.raulsanchez.erp_lite.domain.customer.CustomerInfo;
-import com.raulsanchez.erp_lite.domain.customer.CustomerProvider;
+import com.raulsanchez.erp_lite.domain.ports.CustomerProvider;
 import com.raulsanchez.erp_lite.persistence.rest.dtos.UserDTO;
 import com.raulsanchez.erp_lite.persistence.rest.mappers.CustomerMapper;
 import com.raulsanchez.erp_lite.persistence.rest.models.JsonPlaceholderConfigModel;

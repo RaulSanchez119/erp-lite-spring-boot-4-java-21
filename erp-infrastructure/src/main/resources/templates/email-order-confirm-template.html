@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>Confirmación de orden</title>
+</head>
+
+<body style="margin:0;padding:0;background:#f5f7f6;font-family:Arial,Helvetica,sans-serif;color:#374151;">
+
+<!-- Preheader -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+    Tu orden {{orderNumber}} ha sido confirmada correctamente.
+</div>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f5f7f6;">
+    <tr>
+        <td align="center" style="padding:30px 15px;">
+
+            <!-- Container -->
+            <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0"
+                   style="max-width:640px;width:100%;background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid #dce8e3;">
+
+                <!-- Header -->
+                <tr>
+                    <td style="background:#b6d4c9;padding:32px 40px;">
+
+                        <table role="presentation" width="100%">
+                            <tr>
+
+                                <td align="left">
+                                    <div style="font-size:28px;font-weight:bold;color:#29443c;">
+                                        ¡Gracias por tu compra!
+                                    </div>
+
+                                    <div style="margin-top:8px;font-size:15px;color:#46645b;line-height:22px;">
+                                        Tu orden ha sido recibida y confirmada exitosamente.
+                                    </div>
+                                </td>
+
+                                <td align="right" valign="top">
+
+                                    <!-- Secondary color -->
+                                    <span style="display:inline-block;background:#6f8f84;color:#ffffff;padding:10px 16px;border-radius:999px;font-size:12px;font-weight:bold;letter-spacing:1px;">
+                      CONFIRMADA
+                    </span>
+
+                                </td>
+
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+                <!-- Body -->
+                <tr>
+                    <td style="padding:40px;">
+
+                        <p style="margin:0;font-size:16px;line-height:28px;color:#374151;">
+                            Hola <strong>{{customerName}}</strong>,
+                        </p>
+
+                        <p style="margin:18px 0 30px;font-size:15px;line-height:26px;color:#4b5563;">
+                            Gracias por confiar en nosotros. Hemos recibido correctamente tu pedido y nuestro equipo ya está trabajando para prepararlo.
+                            A continuación encontrarás el resumen de tu compra.
+                        </p>
+
+                        <!-- Order Summary -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="border:1px solid #dce8e3;border-radius:12px;background:#f9fbfa;">
+
+                            <tr>
+                                <td style="padding:24px;">
+
+                                    <div style="font-size:18px;font-weight:bold;color:#29443c;margin-bottom:20px;">
+                                        Resumen de la orden
+                                    </div>
+
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+                                        <tr>
+                                            <td style="padding:10px 0;color:#6b7280;">Número de orden</td>
+                                            <td align="right" style="padding:10px 0;font-weight:bold;color:#374151;">
+                                                {{orderNumber}}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="padding:10px 0;color:#6b7280;">ID de la orden</td>
+                                            <td align="right" style="padding:10px 0;font-weight:bold;color:#374151;">
+                                                {{orderId}}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="padding:10px 0;color:#6b7280;">Fecha</td>
+                                            <td align="right" style="padding:10px 0;font-weight:bold;color:#374151;">
+                                                {{orderDate}}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="padding:10px 0;color:#6b7280;">Cantidad de artículos</td>
+                                            <td align="right" style="padding:10px 0;font-weight:bold;color:#374151;">
+                                                {{itemsCount}}
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="padding:16px 0 0;color:#29443c;font-size:17px;font-weight:bold;">
+                                                Total pagado
+                                            </td>
+
+                                            <td align="right"
+                                                style="padding:16px 0 0;font-size:22px;font-weight:bold;color:#6f8f84;">
+                                                {{totalAmount}} {{currency}}
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <!-- Message -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding-top:30px;">
+
+                                    <div style="background:#eef6f3;border-left:5px solid #6f8f84;padding:18px 20px;border-radius:8px;">
+
+                                        <div style="font-size:15px;line-height:24px;color:#4b5563;">
+                                            En los próximos días recibirás nuevas actualizaciones sobre el estado de tu pedido.
+                                            Conserva el número de orden <strong>{{orderNumber}}</strong>, ya que te servirá como referencia para cualquier consulta.
+                                        </div>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td style="background:#29443c;padding:30px;text-align:center;">
+
+                        <div style="color:#d7ebe3;font-size:14px;line-height:24px;">
+                            Este es un correo automático de confirmación de compra.
+                        </div>
+
+                        <div style="margin-top:10px;color:#b8d2c8;font-size:13px;line-height:22px;">
+                            Si tienes alguna duda sobre tu pedido, conserva la siguiente información:
+                        </div>
+
+                        <div style="margin-top:12px;color:#ffffff;font-size:14px;font-weight:bold;">
+                            Orden: {{orderNumber}} | ID: {{orderId}}
+                        </div>
+
+                    </td>
+                </tr>
+
+            </table>
+
+            <!-- Bottom Note -->
+            <table width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;">
+                <tr>
+                    <td align="center" style="padding:18px 10px;font-size:12px;color:#94a3b8;">
+                        Gracias por elegirnos. Esperamos verte nuevamente muy pronto.
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

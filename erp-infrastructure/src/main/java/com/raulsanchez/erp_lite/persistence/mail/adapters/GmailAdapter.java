@@ -1,7 +1,7 @@
 package com.raulsanchez.erp_lite.persistence.mail.adapters;
 
-import com.raulsanchez.erp_lite.domain.order.OrderId;
-import com.raulsanchez.erp_lite.domain.ports.OrderConfirmEmailService;
+import com.raulsanchez.erp_lite.domain.entities.order.OrderId;
+import com.raulsanchez.erp_lite.domain.ports.services.OrderConfirmEmailServicePort;
 import com.raulsanchez.erp_lite.domain.shared.Email;
 import com.raulsanchez.erp_lite.domain.shared.Money;
 import jakarta.mail.MessagingException;
@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class GmailAdapter implements OrderConfirmEmailService {
+public class GmailAdapter implements OrderConfirmEmailServicePort {
 
     private final JavaMailSender mailSender;
 

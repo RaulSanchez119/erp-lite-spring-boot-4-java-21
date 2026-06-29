@@ -24,8 +24,6 @@ import lombok.*;
 public class ProductEntity {
 
     @Id
-    @GeneratedValue
-    @org.hibernate.annotations.UuidGenerator
     @Column(name = "id", columnDefinition = "uuid", nullable = false, updatable = false)
     private UUID id;
 

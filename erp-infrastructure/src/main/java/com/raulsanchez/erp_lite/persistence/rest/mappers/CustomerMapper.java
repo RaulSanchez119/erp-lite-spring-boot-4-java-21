@@ -1,6 +1,6 @@
 package com.raulsanchez.erp_lite.persistence.rest.mappers;
 
-import com.raulsanchez.erp_lite.domain.customer.CustomerInfo;
+import com.raulsanchez.erp_lite.domain.entities.customer.CustomerInfo;
 import com.raulsanchez.erp_lite.persistence.rest.dtos.AddressDTO;
 import com.raulsanchez.erp_lite.persistence.rest.dtos.UserDTO;
 import org.mapstruct.Mapper;

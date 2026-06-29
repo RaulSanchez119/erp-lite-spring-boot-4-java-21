@@ -1,6 +1,6 @@
 package com.raulsanchez.erp_lite.catalog;
 
-import com.raulsanchez.erp_lite.domain.catalog.CatalogItem;
+import com.raulsanchez.erp_lite.domain.entities.catalog.CatalogItem;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

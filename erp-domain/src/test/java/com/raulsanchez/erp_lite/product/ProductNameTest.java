@@ -3,7 +3,7 @@ package com.raulsanchez.erp_lite.product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.raulsanchez.erp_lite.domain.product.ProductName;
+import com.raulsanchez.erp_lite.domain.entities.product.ProductName;
 
 import static org.junit.jupiter.api.Assertions.*;
 

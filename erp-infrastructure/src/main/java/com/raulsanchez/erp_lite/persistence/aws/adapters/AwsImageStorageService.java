@@ -1,8 +1,8 @@
 package com.raulsanchez.erp_lite.persistence.aws.adapters;
 
 import com.raulsanchez.erp_lite.domain.exceptions.MyBusinessException;
-import com.raulsanchez.erp_lite.domain.ports.ImageStorageService;
-import com.raulsanchez.erp_lite.domain.product.ProductImage;
+import com.raulsanchez.erp_lite.domain.ports.services.ImageStorageServicePort;
+import com.raulsanchez.erp_lite.domain.entities.product.ProductImage;
 import com.raulsanchez.erp_lite.persistence.aws.models.AwsConfigModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import software.amazon.awssdk.services.s3.model.S3Exception;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class AwsImageStorageService implements ImageStorageService {
+public class AwsImageStorageService implements ImageStorageServicePort {
 
     private final S3Client s3Client;
     private final AwsConfigModel awsConfig;

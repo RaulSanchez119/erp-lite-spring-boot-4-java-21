@@ -1,0 +1,72 @@
+package com.raulsanchez.erp_lite.persistence.rest.adapters;
+
+import com.raulsanchez.erp_lite.domain.entities.customer.CustomerInfo;
+import com.raulsanchez.erp_lite.domain.ports.services.CustomerProviderServicePort;
+import com.raulsanchez.erp_lite.persistence.rest.dtos.UserDTO;
+import com.raulsanchez.erp_lite.persistence.rest.mappers.CustomerMapper;
+import com.raulsanchez.erp_lite.persistence.rest.models.JsonPlaceholderConfigModel;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
+
+import java.util.Optional;
+
+@Service
+@Slf4j
+public class JsonPlaceholderCustomerProviderServiceAdapter implements CustomerProviderServicePort {
+
+    private final RestClient jsonClient;
+    private final CustomerMapper customerMapper;
+    private final String endpoint;
+
+    public JsonPlaceholderCustomerProviderServiceAdapter(
+            @Qualifier("jsonplaceholder") RestClient restClient, CustomerMapper customerMapper, JsonPlaceholderConfigModel jsonConfig) {
+        this.jsonClient = restClient;
+        this.customerMapper = customerMapper;
+        this.endpoint = jsonConfig.usersEndpoint();
+    }
+
+
+    @Override
+    public Optional<CustomerInfo> findById(Long id) {
+        log.info("findById: {}", id);
+
+        try{
+            final UserDTO response = this.jsonClient
+                    .get()
+                    .uri(endpoint, id)
+                    .retrieve()
+                    .onStatus(HttpStatusCode::is4xxClientError, (req, rest) -> {
+                        log.error("Error on client side: {}", req);
+                    }).onStatus(HttpStatusCode::is5xxServerError, (req, rest) -> {
+                        log.error("Error on server side: {}", req);
+                    })
+                    .body(UserDTO.class);
+
+            if(response == null){
+                log.warn("User not found");
+                return Optional.empty();
+            }
+
+            log.info("User found: {}", response);
+
+            return Optional.of(this.customerMapper.toCustomerInfo(response));
+
+        }catch(RestClientException rce){
+            log.error("Error on findById while call API: {}", rce);
+            return Optional.empty();
+        } catch (Exception e) {
+            log.error("Error on findById: {}", e);
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public boolean existsById(Long id) {
+        log.info("existsById: {}", id);
+        return false;
+    }
+}

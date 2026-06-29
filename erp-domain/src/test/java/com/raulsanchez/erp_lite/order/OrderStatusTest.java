@@ -3,7 +3,7 @@ package com.raulsanchez.erp_lite.order;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.raulsanchez.erp_lite.domain.order.OrderStatus;
+import com.raulsanchez.erp_lite.domain.entities.order.OrderStatus;
 
 import static org.junit.jupiter.api.Assertions.*;
 

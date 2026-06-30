@@ -10,13 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
 @Document(collection = "product_documents")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductCatalogDocument {
+public class ProductInCatalogDocument {
 
     @Id
     private String id;
@@ -41,7 +42,7 @@ public class ProductCatalogDocument {
 
     private Integer stock;
 
-    private ProductSpecifications specifications;
+    private Map<String, Object> specifications;
 
     private List<String> tags;
 

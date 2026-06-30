@@ -4,7 +4,7 @@ services:
     container_name: erp-postgres
     environment:
       POSTGRES_DB: erp_db
-      POSTGRES_USER: debuggeandoideas
+      POSTGRES_USER: raulsanchez
       POSTGRES_PASSWORD: secret
     ports:
       - "5432:5432"
@@ -13,7 +13,7 @@ services:
     networks:
       - erp-vpc
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U debuggeandoideas -d erp_db"]
+      test: ["CMD-SHELL", "pg_isready -U raulsanchez -d erp_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -22,7 +22,7 @@ services:
     image: mongo:8
     container_name: erp-mongodb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: debuggeandoideas
+      MONGO_INITDB_ROOT_USERNAME: raulsanchez
       MONGO_INITDB_ROOT_PASSWORD: secret
       MONGO_INITDB_DATABASE: erp_catalog_db
     ports:
@@ -32,7 +32,7 @@ services:
     networks:
       - erp-vpc
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')", "-u", "debuggeandoideas", "-p", "secret", "--authenticationDatabase", "admin", "--quiet"]
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')", "-u", "raulsanchez", "-p", "secret", "--authenticationDatabase", "admin", "--quiet"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -59,7 +59,7 @@ services:
     container_name: redis-ui
     environment:
       - REDIS_HOSTS=local:redis:6379:0:secret
-      - HTTP_USER=debuggeandoideas
+      - HTTP_USER=raulsanchez
       - HTTP_PASSWORD=secret
     ports:
       - "8081:8081"

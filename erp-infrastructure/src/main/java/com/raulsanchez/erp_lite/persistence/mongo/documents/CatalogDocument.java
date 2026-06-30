@@ -1,5 +1,6 @@
 package com.raulsanchez.erp_lite.persistence.mongo.documents;
 
+import com.raulsanchez.erp_lite.enums.CatalogType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

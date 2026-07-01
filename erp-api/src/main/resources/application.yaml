@@ -78,6 +78,16 @@ spring:
 server:
   port: 9090
 
+#OPEN API
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+  api-docs:
+    path: /v3/api-docs
+  packages-to-scan: com.raulsanchez.erp_lite
+
+
 # Logging
 logging:
   level:

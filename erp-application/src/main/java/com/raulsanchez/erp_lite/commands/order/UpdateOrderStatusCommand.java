@@ -15,11 +15,6 @@ import jakarta.validation.constraints.*;
  */
 public record UpdateOrderStatusCommand(
 
-        @NotBlank(message = "Order ID cannot be null or blank")
-        @Pattern(
-                regexp = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
-                message = "Order ID must be a valid UUID"
-        )
         String orderId,
 
         @NotBlank(message = "New status cannot be null or blank")

@@ -6,6 +6,9 @@ dependencies {
     // Spring Web solo para el módulo API
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    //Open API
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3")
+
     // Dependencias de otros módulos
     implementation project(':erp-common')
     implementation project(':erp-domain')

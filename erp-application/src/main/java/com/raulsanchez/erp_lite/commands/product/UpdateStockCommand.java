@@ -12,7 +12,6 @@ import jakarta.validation.constraints.*;
  */
 public record UpdateStockCommand(
 
-        @NotBlank(message = "Product ID cannot be null or blank")
         String productId,
 
         @NotNull(message = "Quantity cannot be null")

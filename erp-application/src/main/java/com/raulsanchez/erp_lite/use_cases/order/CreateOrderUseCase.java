@@ -72,7 +72,8 @@ public class CreateOrderUseCase {
 
             this.sendMail(orderRoot, customer);
 
-            return orderRoot.getId().toString();
+            return orderRoot.getId().value().toString();
+
         } catch (IllegalArgumentException iae) {
             log.error("Invalid data", iae);
             throw new CommandException("Error on create order msg: " + iae.getMessage());

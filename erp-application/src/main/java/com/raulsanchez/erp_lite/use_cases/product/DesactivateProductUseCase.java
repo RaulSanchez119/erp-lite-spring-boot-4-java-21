@@ -1,6 +1,6 @@
 package com.raulsanchez.erp_lite.use_cases.product;
 
-import com.raulsanchez.erp_lite.commands.product.DeactivateProductCommand;
+import com.raulsanchez.erp_lite.commands.product.DesactivateProductCommand;
 import com.raulsanchez.erp_lite.domain.entities.product.ProductId;
 import com.raulsanchez.erp_lite.domain.entities.product.ProductRoot;
 import com.raulsanchez.erp_lite.domain.ports.repositories.ProductRepositoryPort;
@@ -24,11 +24,11 @@ import java.util.UUID;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class DeactivateProductUseCase {
+public class DesactivateProductUseCase {
 
     private final ProductRepositoryPort productRepository;
 
-    public void execute(DeactivateProductCommand command) {
+    public void execute(DesactivateProductCommand command) {
         log.info("Deactivating product: {}", command.productId());
 
         try {

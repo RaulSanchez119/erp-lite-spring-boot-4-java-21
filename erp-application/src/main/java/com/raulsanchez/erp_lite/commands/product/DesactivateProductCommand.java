@@ -9,7 +9,7 @@ import jakarta.validation.constraints.*;
  *
  * @param productId Product ID to deactivate
  */
-public record DeactivateProductCommand(
+public record DesactivateProductCommand(
 
         @NotBlank(message = "Product ID cannot be null or blank")
         String productId

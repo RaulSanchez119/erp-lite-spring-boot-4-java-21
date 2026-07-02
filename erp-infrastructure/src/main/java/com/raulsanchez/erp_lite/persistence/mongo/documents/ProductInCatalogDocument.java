@@ -22,7 +22,7 @@ public class ProductInCatalogDocument {
     @Id
     private String id;
 
-    private Boolean active;
+    private boolean active;
 
     private String categoryId;
 

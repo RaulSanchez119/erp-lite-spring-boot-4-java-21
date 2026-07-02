@@ -23,7 +23,7 @@ public class CatalogDocument {
     private String id;
 
     @Field(name ="active")
-    private Boolean active;
+    private boolean active;
 
     private CatalogType catalogType;
 

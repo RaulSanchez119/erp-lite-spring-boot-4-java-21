@@ -40,6 +40,7 @@ subprojects {
 
         //Javax Validator
         implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'commons-logging:commons-logging:1.3.5'
 
         // Binding Lombok-Mapstruct
         implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
@@ -49,6 +50,10 @@ subprojects {
         testAnnotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.security:spring-security-oauth2-authorization-server'
+        implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
     }
 
     tasks.named('test') {

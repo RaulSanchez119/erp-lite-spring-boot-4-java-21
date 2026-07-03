@@ -104,7 +104,12 @@ public class ProductRoot extends AggregateRoot<ProductId> {
                 sku,
                 name,
                 price,
-                now
+                now,
+                description,
+                stock,
+                category,
+                image,
+                true
         ));
 
         return product;

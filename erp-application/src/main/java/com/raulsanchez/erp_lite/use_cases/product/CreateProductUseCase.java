@@ -2,6 +2,7 @@ package com.raulsanchez.erp_lite.use_cases.product;
 
 import com.raulsanchez.erp_lite.commands.product.CreateProductCommand;
 import com.raulsanchez.erp_lite.domain.entities.product.*;
+import com.raulsanchez.erp_lite.domain.ports.messages.EventPublisherPort;
 import com.raulsanchez.erp_lite.domain.ports.repositories.ProductRepositoryPort;
 import com.raulsanchez.erp_lite.domain.ports.services.ImageStorageServicePort;
 import com.raulsanchez.erp_lite.domain.shared.Money;
@@ -24,24 +25,21 @@ import java.util.Currency;
  */
 @Slf4j
 @Service
-@Transactional
+@Transactional(noRollbackFor = RuntimeException.class)
 @RequiredArgsConstructor
 public class CreateProductUseCase {
 
     private final ProductRepositoryPort productRepository;
     private final ImageStorageServicePort imageStorageService;
+    private final EventPublisherPort eventPublisher;
 
 
     public String execute(CreateProductCommand command) {
         log.info("Creating product with SKU: {}", command.sku());
 
         try {
-            // 1. Validate SKU uniqueness
             validateSkuUniqueness(command.sku());
 
-            // 2. Upload image (if provided)
-
-            // 3. Create value objects
             SKU sku = SKU.of(command.sku());
             ProductName name = ProductName.of(command.name());
             Money price = Money.of(command.price(), Currency.getInstance(command.currency()));
@@ -50,7 +48,6 @@ public class CreateProductUseCase {
 
             ProductImage img = this.uploadImg(command);
 
-            // 4. Create product aggregate
             ProductRoot product = ProductRoot.create(
                     sku,
                     name,
@@ -64,12 +61,11 @@ public class CreateProductUseCase {
 
             log.debug("Product created in domain with ID: {}", product.getId().value());
 
-            // 5. Persist product
             ProductRoot savedProduct = productRepository.save(product);
 
             log.info("Product persisted with ID: {}", savedProduct.getId().value());
 
-            // TODO: Handle domain events - Sync to MongoDB
+            this.sendEventMessage(product);
 
             return savedProduct.getId().value().toString();
 
@@ -108,5 +104,14 @@ public class CreateProductUseCase {
             log.error("Unexpected error uploading image with SKU", e);
             throw new CommandException("Error uploading image with SKU: " + e.getMessage());
         }
+    }
+
+    private void sendEventMessage(ProductRoot product) {
+        product.getDomainEvents()
+                .forEach(eventPublisher::publish);
+
+        product.clearDomainEvents();
+
+        log.info("Event send successfully");
     }
 }

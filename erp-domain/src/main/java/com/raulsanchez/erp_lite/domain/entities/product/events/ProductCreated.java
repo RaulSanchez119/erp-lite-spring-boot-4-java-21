@@ -1,9 +1,7 @@
 package com.raulsanchez.erp_lite.domain.entities.product.events;
 
 import com.raulsanchez.erp_lite.domain.common.DomainEvent;
-import com.raulsanchez.erp_lite.domain.entities.product.ProductId;
-import com.raulsanchez.erp_lite.domain.entities.product.ProductName;
-import com.raulsanchez.erp_lite.domain.entities.product.SKU;
+import com.raulsanchez.erp_lite.domain.entities.product.*;
 import com.raulsanchez.erp_lite.domain.shared.Money;
 
 import java.time.Instant;
@@ -23,6 +21,11 @@ public record ProductCreated(
         SKU sku,
         ProductName name,
         Money price,
-        Instant timestamp
+        Instant timestamp,
+        String description,
+        Stock stock,
+        CategoryReference category,
+        ProductImage image,
+        boolean active
 ) implements DomainEvent {
 }

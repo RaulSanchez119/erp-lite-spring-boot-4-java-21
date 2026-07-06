@@ -13,22 +13,9 @@
 
 API backend de un ERP ligero construida con **DDD**, **Arquitectura Hexagonal** y **CQRS**, usando PostgreSQL como modelo de escritura y MongoDB como modelo de lectura.
 
-**Índice rápido:** [Swagger / Demo](#swagger--demo) · [Arquitectura](#arquitectura) · [Cómo ejecutarlo](#como-ejecutar-en-local) · [Endpoints](#endpoints)
+**Índice rápido:** [Arquitectura](#arquitectura) · [Cómo ejecutarlo](#como-ejecutar-en-local) · [Endpoints](#endpoints)
 
 ---
-
-## Swagger / Demo
-
-> 🔗 **Swagger UI en vivo:** `PENDIENTE — añadir aquí el link cuando esté desplegado`
->
-> Si aún no lo has desplegado, prueba con [Render](https://render.com) o [Railway](https://railway.app) (ambos con capa gratuita y soporte para Docker). Recomendado: usar un perfil `demo` con solo PostgreSQL para simplificar el despliegue público.
-
-En local, una vez levantado el proyecto (ver más abajo), Swagger está disponible en:
-
-```text
-http://localhost:9090/swagger-ui.html
-http://localhost:9090/v3/api-docs
-```
 
 ## Descripción
 
